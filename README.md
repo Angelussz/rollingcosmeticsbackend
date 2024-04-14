@@ -22,22 +22,20 @@
 	│   ├── controladores
 	│   │   ├── ControladorProduto.js
 	│   │   └── ControladorUsuario.js
-    │   ├── modelos
-    │   │   ├── ModeloProducto.js
+    	│   ├── modelos
+    	│   │   ├── ModeloProducto.js
 	│   │   └── ModeloUsuario.js
-	│   └── style.css
-	├── rutas
-    │   ├── RutaProducto.js
-	│   └── RutaUusuario.js
-    ├── utilidades
-    │   ├── AuthMiddlewares.js
-    │   ├── FuncionesAuxiliares.js
-	│   └── FuncionesAuxiliares.js
-    ├── ConexionBaseDatos.js
-	├── index.js
-    ├── .env
-    ├── .envexamples
-    ├── .gitignore
+	│   ├── rutas
+    	│   │    ├── RutaProducto.js
+	│   │    └── RutaUusuario.js
+    	│   ├── utilidades
+    	│   │	 ├── FuncionesAuxiliares.js 
+     	│   │    └── AuthMiddlewares.js
+    	│   ├── ConexionBaseDatos.js
+        |   └── index.js
+    	├── .env
+    	├── .envexamples
+    	├── .gitignore
 	├── .gitignore
 	├── .htaccess
 	└── README.md
