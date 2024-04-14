@@ -6,3 +6,4 @@ const databaseConnection = require('./databaseConnection.js')
 const UserRoutes = require("./routes/UserRoutes.js")
 const ProductRoutes = require("./routes/ProductRoutes.js")
 require('dotenv').config();
+databaseConnection()
