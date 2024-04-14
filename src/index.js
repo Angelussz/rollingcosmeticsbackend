@@ -7,3 +7,32 @@ const UserRoutes = require("./routes/UserRoutes.js")
 const ProductRoutes = require("./routes/ProductRoutes.js")
 require('dotenv').config();
 databaseConnection()
+const app = express();
+
+app.set("port", process.env.PORT ||9001);
+console.log("first")
+app.listen(app.get("port"),()=>{
+    console.log(`BACKEND PRODUCTOS LISTENING IMPORT IN PORT ${app.get('port')}`)
+})
+
+app.use(express.json());
+app.use(express.urlencoded({extended:true}))
+app.use(morgan("dev"))
+app.use(cors())
+
+
+console.log(__dirname,"DIRNAME")
+app.use(express.static(path.join(__dirname,"../public")))
+
+app.get("/test", async(req,res,next) =>{
+    try {
+        console.log("REQUEST-->",req)
+        return res.status(200).json({
+            success:true,
+            message:"API IS ALIVE"
+        })
+    } catch (error) {
+        console.error(error)
+        next(error)
+    }
+})
