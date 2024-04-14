@@ -22,8 +22,8 @@
 	│   ├── controladores
 	│   │   ├── ControladorProduto.js
 	│   │   └── ControladorUsuario.js
-    │   ├── modelos
-    │   │   ├── ModeloProducto.js
+    │	│   ├── modelos
+    │	│   │   ├── ModeloProducto.js
 	│   │   └── ModeloUsuario.js
 	│   ├── rutas
     │   │   ├── RutaProducto.js
