@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const dataConnection = ()=>{
+const conexion = ()=>{
     const connectionString = process.env.DDBB;
 
     mongoose.connect(connectionString);
@@ -11,4 +11,4 @@ const dataConnection = ()=>{
     })
 }
 
-module.exports = dataConnection
+module.exports = conexion

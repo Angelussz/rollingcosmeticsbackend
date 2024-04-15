@@ -2,11 +2,10 @@ const express  = require("express")
 const cors = require("cors")
 const morgan = require("morgan")
 const path = require("path")
-const databaseConnection = require('./databaseConnection.js')
-const UserRoutes = require("./routes/UserRoutes.js")
-const ProductRoutes = require("./routes/ProductRoutes.js")
+const conexion = require('./conexionBDMongo.js')
+const RutaUsuarios = require("./rutas/RutaUsuarios.js")
 require('dotenv').config();
-databaseConnection()
+conexion()
 const app = express();
 
 app.set("port", process.env.PORT ||9001);
@@ -36,3 +35,4 @@ app.get("/test", async(req,res,next) =>{
         next(error)
     }
 })
+RutaUsuarios("/usuarios",app)
