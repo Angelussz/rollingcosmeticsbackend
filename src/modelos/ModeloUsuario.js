@@ -5,8 +5,14 @@ const EsquemaUsuario = new Schema({
   nombre: {
     type: String,
     required: true,
-    lowercase: true,
-    min:[6,"El tamaño del nombre es muy pequeño"]
+    lowercase: true
+    // minLength:[1,"El tamaño del nombre es muy pequeño"]
+  },
+  apellido:{
+    type: String,
+    required: true,
+    lowercase: true
+    // minLength:[3,"El tamaño del nombre es muy pequeño"] 
   },
   email: {
     type: String,
@@ -15,7 +21,7 @@ const EsquemaUsuario = new Schema({
     match:
       /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
   },
-  password: {
+  clave: {
     type: String,
     required: [true, "La contraseña es requerida"],
   },
