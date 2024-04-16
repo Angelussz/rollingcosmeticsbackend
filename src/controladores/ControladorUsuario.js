@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const validadores = require("../utilidades/validadores");
 const jwt = require("jsonwebtoken");
 class ControladorUsuario {
-  async CrearNuevoAdmin(nombre,apellido,email, clave) {
+  async CrearNuevoAdmin(nombre, apellido, email, clave) {
     try {
       if (!validadores.ValidarEmail(email)) {
         throw new Error("Formato Email Invalido");
@@ -16,7 +16,7 @@ class ControladorUsuario {
         nombre,
         apellido,
         email,
-        clave:hash,
+        clave: hash,
         rol: "Admin",
       });
       const guardarUsuario = await nuevoUsuario.save();
@@ -25,7 +25,48 @@ class ControladorUsuario {
       throw error;
     }
   }
-    
+  async Login(req, res) {
+    try {
+      const entradaUsuario = req.body;
+      if (entradaUsuario.email === "" || entradaUsuario.email === undefined) {
+        throw new Error("debe enviar un email");
+      }
+      if (entradaUsuario.clave === "" || entradaUsuario.clave === undefined) {
+        throw new Error("debe enviar una clave");
+      }
+      const usuarioEncontrado = await ModeloUsuario.findOne({
+        email: entradaUsuario.email,
+      });
+      if (usuarioEncontrado === null) {
+        return res.status(404).json({ message: "Email y/o clave incorrecto" });
+      }
+      const compare = await bcrypt.compare(
+        entradaUsuario.clave,
+        usuarioEncontrado.clave
+      );
+      if (!compare) {
+        return res.status(404).json({ message: "Email y/o clave incorrecto" });
+      }
+      const token = jwt.sign(
+        {
+          _id: usuarioEncontrado._id,
+          rol: usuarioEncontrado.rol,
+        },
+        process.env.CLAVE_SECRETA,
+        { expiresIn: "1D" }
+      );
+
+      return res
+        .status(200)
+        .json({
+          email: usuarioEncontrado.email,
+          rol: usuarioEncontrado.rol,
+          token: token,
+        });
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 
 module.exports = ControladorUsuario;

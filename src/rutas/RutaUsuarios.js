@@ -15,6 +15,13 @@ const RutaUsuarios = (base, app) => {
         .json({ mesage: "Ocurrio un error al intentar crear usuario" });
     }
   });
-  
+  app.post(`${base}/login`,async(req,res,next)=>{
+    try {
+      const resp = await controlador.Login(req,res)
+      return resp
+    } catch (error) {
+      next(error)
+    }
+  })
 };
 module.exports = RutaUsuarios;
