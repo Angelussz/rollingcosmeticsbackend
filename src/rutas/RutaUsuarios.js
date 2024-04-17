@@ -33,15 +33,19 @@ const RutaUsuarios = (base, app) => {
       // const resp = await controlador.Login(req,res)
       // return resp
 
-      console.log(req.query);
-      console.log(req.usuario);
+      // console.log(req.query);
+      // console.log(req.usuario);
+
+      const {rol,busqueda} = req.query;
+      const usuarios = await controlador.TraerTodosUsuarios(rol,busqueda);
       return res
         .status(200)
-        .json({ message: "Hiciste get a todos los usuarios" });
+        .json(usuarios);
     } catch (error) {
+      console.log(error);
       return res
         .status(500)
-        .json({ mesage: "Ocurrio un error al intentar crear usuario" });
+        .json({ mesage: "Ocurrio un error al intentar traer a todos los usuarios" });
     }
   });
 };
