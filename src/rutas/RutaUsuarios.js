@@ -17,7 +17,7 @@ const RutaUsuarios = (base, app) => {
       // next(error);
       return res
         .status(500)
-        .json({ mesage: "Ocurrio un error al intentar crear usuario" });
+        .json({ mensaje: "Ocurrio un error al intentar crear usuario" });
     }
   });
   app.post(`${base}/login`, async (req, res, next) => {
@@ -45,7 +45,7 @@ const RutaUsuarios = (base, app) => {
       console.log(error);
       return res
         .status(500)
-        .json({ mesage: "Ocurrio un error al intentar traer a todos los usuarios" });
+        .json({ mensaje: "Ocurrio un error al intentar traer a todos los usuarios" });
     }
   });
 };

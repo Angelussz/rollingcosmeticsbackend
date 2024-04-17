@@ -38,14 +38,14 @@ class ControladorUsuario {
         email: entradaUsuario.email,
       });
       if (usuarioEncontrado === null) {
-        return res.status(404).json({ message: "Email y/o clave incorrecto" });
+        return res.status(404).json({ mensaje: "Email y/o clave incorrecto" });
       }
       const compare = await bcrypt.compare(
         entradaUsuario.clave,
         usuarioEncontrado.clave
       );
       if (!compare) {
-        return res.status(404).json({ message: "Email y/o clave incorrecto" });
+        return res.status(404).json({ mensaje: "Email y/o clave incorrecto" });
       }
       const token = jwt.sign(
         {

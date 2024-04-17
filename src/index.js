@@ -28,7 +28,7 @@ app.get("/test", async(req,res,next) =>{
         console.log("REQUEST-->",req)
         return res.status(200).json({
             success:true,
-            message:"API IS ALIVE"
+            mensaje:"API IS ALIVE"
         })
     } catch (error) {
         console.error(error)

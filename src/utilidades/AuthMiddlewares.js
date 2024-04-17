@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken")
 function esAutorizado(req,res,next){
     const auth = req.get("Authorization");
     if(!auth){
-        return res.status(401).json({message:"No autorizado"})
+        return res.status(401).json({mensaje:"No autorizado"})
     }
     try {
         const token = auth.split(" ")[1];
