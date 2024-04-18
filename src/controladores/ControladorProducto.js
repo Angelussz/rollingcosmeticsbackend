@@ -24,9 +24,27 @@ class ControladorProducto{
         }
     }
 
-    async ObtenerProductos(){
+    async ObtenerProductos(filtro, busqueda){
         try {
-            const productos = await ModeloProducto.find();
+            let respuestaFinal = [];
+            let consulta ={};
+
+            if(filtro !== undefined){
+                consulta["categoria"] = filtro;
+            };
+
+            if(busqueda !== undefined){
+                consulta[nombre]={$regex: busqueda, $options:"i"};
+            }
+
+            /*if(filtro === undefined){
+                respuestaFinal = await ModeloProducto.find();
+            } else{
+                respuestaFinal = await ModeloProducto.find({
+                    categoria: filtro
+                });
+            }*/
+            respuestaFinal = await ModeloProducto.find(consulta);
             return productos;
         } catch (error) {
             throw error;
