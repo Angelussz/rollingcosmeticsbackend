@@ -3,8 +3,9 @@ const cors = require("cors")
 const morgan = require("morgan")
 const path = require("path")
 const conexion = require('./conexionBDMongo.js')
-//const UserRoutes = require("./routes/UserRoutes.js")
 const RutaProducto = require("./rutas/RutaProducto.js")
+const RutaUsuarios = require("./rutas/RutaUsuarios.js")
+
 require('dotenv').config();
 conexion()
 const app = express();
@@ -38,3 +39,5 @@ app.get("/test", async(req,res,next) =>{
 })
 
 RutaProducto('/productos', app);
+RutaUsuarios("/usuarios",app)
+
