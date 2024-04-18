@@ -41,7 +41,8 @@
 	└── README.md
 # EndPoints
 ## Usuario
-* Para loguearse, POST `API/usuarios/login`: regresa:
+* Para loguearse, POST `API/usuarios/login`: 
+Regresa:
 ```
 {
 	nombre,
@@ -51,6 +52,7 @@
 }
 ```
 * Para crear un admin, POST `API/usuarios/crear-admin`: <span style="color:red">se debe autenticar como administrador</span>
+Regresa:
 ```
 {
 	nombre,
@@ -61,6 +63,7 @@
 }
 ```
 * Para crear un usuario, POST `API/usuarios/`: regresa los valores acontinuación.
+Regresa:
 ```
 {
 	nombre,
@@ -71,6 +74,7 @@
 }
 ```
 * Para obtener todos los usuarios, GET `API/usuarios?rol=YYYY&busqueda=BBBBBBBB`, se puede colocar querys de rol y busqueda, el rol buscara con el tipo de rol a ingresar y busqueda por nombre o apellido coincidente,<span style="color:red">se debe autenticar como administrador</span>
+Regresa:
 ```
 [
 	{
@@ -103,6 +107,7 @@
 ]
 ```
 * Para eliminar usuario, DELETE `API/usuarios/delete/`, <span style="color:red">se debe autenticar como administrador</span>
+Regresa:
 ```
 {
 	mensaje: "Exito al eliminar usuario"
