@@ -3,7 +3,9 @@ const cors = require("cors")
 const morgan = require("morgan")
 const path = require("path")
 const conexion = require('./conexionBDMongo.js')
+const RutaProducto = require("./rutas/RutaProducto.js")
 const RutaUsuarios = require("./rutas/RutaUsuarios.js")
+
 require('dotenv').config();
 conexion()
 const app = express();
@@ -28,11 +30,14 @@ app.get("/test", async(req,res,next) =>{
         console.log("REQUEST-->",req)
         return res.status(200).json({
             success:true,
-            mensaje:"API IS ALIVE"
+            message:"API IS ALIVE"
         })
     } catch (error) {
         console.error(error)
         next(error)
     }
 })
+
+RutaProducto('/productos', app);
 RutaUsuarios("/usuarios",app)
+
