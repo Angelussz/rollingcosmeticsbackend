@@ -1,5 +1,5 @@
 const ModeloProducto = require('../modelos/ModeloProducto');
-const validador = require('../utilidades/validadores');
+const validador = require('../utilidades/Validadores');
 
 class ControladorProducto{
     async Crear(nombre, stock, precio, descripcion, imagen, categoria, marca){
