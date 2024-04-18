@@ -59,6 +59,7 @@ class ControladorUsuario {
       return res
         .status(200)
         .json({
+          nombre: usuarioEncontrado.nombre, 
           email: usuarioEncontrado.email,
           rol: usuarioEncontrado.rol,
           token: token,
