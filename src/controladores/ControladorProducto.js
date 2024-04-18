@@ -1,5 +1,5 @@
 const ModeloProducto = require('../modelos/ModeloProducto');
-const validador = require('../utilidades/Validadores');
+const validador = require('../utilidades/validadores');
 
 class ControladorProducto{
     async Crear(nombre, stock, precio, descripcion, imagen, categoria, marca){
@@ -19,6 +19,33 @@ class ControladorProducto{
             });
 
             await producto.save();
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    async ObtenerProductos(filtro, busqueda){
+        try {
+            let respuestaFinal = [];
+            let consulta ={};
+
+            if(filtro !== undefined){
+                consulta["categoria"] = filtro;
+            };
+
+            if(busqueda !== undefined){
+                consulta[nombre]={$regex: busqueda, $options:"i"};
+            }
+
+            /*if(filtro === undefined){
+                respuestaFinal = await ModeloProducto.find();
+            } else{
+                respuestaFinal = await ModeloProducto.find({
+                    categoria: filtro
+                });
+            }*/
+            respuestaFinal = await ModeloProducto.find(consulta);
+            return productos;
         } catch (error) {
             throw error;
         }
