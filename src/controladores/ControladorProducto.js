@@ -1,5 +1,5 @@
 const ModeloProducto = require('../modelos/ModeloProducto');
-const validador = require('../utilidades/Validadores');
+const validador = require('../utilidades/validadores');
 
 class ControladorProducto{
     async Crear(nombre, stock, precio, descripcion, imagen, categoria, marca){
@@ -19,6 +19,15 @@ class ControladorProducto{
             });
 
             await producto.save();
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    async ObtenerProductos(){
+        try {
+            const productos = await ModeloProducto.find();
+            return productos;
         } catch (error) {
             throw error;
         }
