@@ -28,25 +28,49 @@ const RutaUsuarios = (base, app) => {
       next(error);
     }
   });
-  app.get(`${base}/`,Auth.esAutorizado,Auth.esAdmin, async (req, res, next) => {
-    try {
-      // const resp = await controlador.Login(req,res)
-      // return resp
+  app.get(
+    `${base}/`,
+    Auth.esAutorizado,
+    Auth.esAdmin,
+    async (req, res, next) => {
+      try {
+        // const resp = await controlador.Login(req,res)
+        // return resp
 
-      // console.log(req.query);
-      // console.log(req.usuario);
+        // console.log(req.query);
+        // console.log(req.usuario);
 
-      const {rol,busqueda} = req.query;
-      const usuarios = await controlador.TraerTodosUsuarios(rol,busqueda);
-      return res
-        .status(200)
-        .json(usuarios);
-    } catch (error) {
-      console.log(error);
-      return res
-        .status(500)
-        .json({ mensaje: "Ocurrio un error al intentar traer a todos los usuarios" });
+        const { rol, busqueda } = req.query;
+        const usuarios = await controlador.TraerTodosUsuarios(rol, busqueda);
+        return res.status(200).json(usuarios);
+      } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+          mensaje: "Ocurrio un error al intentar traer a todos los usuarios",
+        });
+      }
     }
-  });
+  );
+  app.delete(
+    `${base}/:id`,
+    Auth.esAutorizado,
+    Auth.esAdmin,
+    Auth.esElMismo,
+    async (req, res) => {
+      try {
+        const id = req.params.id;
+        const response = await controlador.EliminarUsuarioPorId(id);
+        console.log("USUARIO ELIMINADO--->", JSON.stringify(response));
+        return res
+          .status(200)
+          .json({ nessage: "Exito al eliminar el usuario" });
+      } catch (error) {
+        console.log("Erro al eliminar el producto -->", error);
+        return res.status(500).json({
+          message: "Ocurrio un error al intentar eliminar el usuario",
+        });
+      }
+    }
+  );
 };
 module.exports = RutaUsuarios;

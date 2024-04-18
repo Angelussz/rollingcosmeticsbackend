@@ -89,7 +89,14 @@ class ControladorUsuario {
       finalResponse = await ModeloUsuario.find(query)
       
       return finalResponse
-      return "hola"
+    } catch (error) {
+      throw error;
+    }
+  }
+  async EliminarUsuarioPorId(id){
+    try {
+      const eliminarUsuario = await ModeloUsuario.findByIdAndDelete(id);
+      return eliminarUsuario;
     } catch (error) {
       throw error;
     }
