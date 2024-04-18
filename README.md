@@ -39,3 +39,72 @@
     ├── .gitignore
 	├── .gitignore
 	└── README.md
+# EndPoints
+## Usuario
+* Para loguearse, POST `API/usuarios/login`: regresa:
+```
+{
+	nombre,
+	email.
+	rol,
+	token
+}
+```
+* Para crear un admin, POST `API/usuarios/crear-admin`: <span style="color:red">se debe autenticar como administrador</span>
+```
+{
+	nombre,
+	apellido.
+	clave,
+	rol,
+	_id
+}
+```
+* Para crear un usuario, POST `API/usuarios/`: regresa los valores acontinuación.
+```
+{
+	nombre,
+	apellido.
+	clave,
+	rol,
+	_id
+}
+```
+* Para obtener todos los usuarios, GET `API/usuarios?rol=YYYY&busqueda=BBBBBBBB`, se puede colocar querys de rol y busqueda, el rol buscara con el tipo de rol a ingresar y busqueda por nombre o apellido coincidente,<span style="color:red">se debe autenticar como administrador</span>
+```
+[
+	{
+	nombre,
+	apellido.
+	clave,
+	rol,
+	_id
+},
+{
+	nombre,
+	apellido.
+	clave,
+	rol,
+	_id
+},
+{
+	nombre,
+	apellido.
+	clave,
+	rol,
+	_id
+},
+.
+.
+.
+.
+.
+.
+]
+```
+* Para eliminar usuario, DELETE `API/usuarios/delete/`, <span style="color:red">se debe autenticar como administrador</span>
+```
+{
+	mensaje: "Exito al eliminar usuario"
+}
+```
