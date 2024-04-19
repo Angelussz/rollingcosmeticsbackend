@@ -128,3 +128,101 @@ Regresa:
 	mensaje: "Exito al eliminar usuario"
 }
 ```
+## Producto
+* Para crear nuevo producto, POST `API/productos`: 
+Regresa:
+```
+{
+	_id,
+	nombre,
+	stock,
+	precio,
+	descripcion,
+	imagen,
+	categoria,
+	marca
+}
+```
+* Para obtener todos los productos, GET `API/productos/`:
+Regresa:
+```
+[
+	{
+	_id,
+	nombre,
+	stock,
+	precio,
+	descripcion,
+	imagen,
+	categoria,
+	marca
+},
+{
+	_id,
+	nombre,
+	stock,
+	precio,
+	descripcion,
+	imagen,
+	categoria,
+	marca
+},
+{
+	_id,
+	nombre,
+	stock,
+	precio,
+	descripcion,
+	imagen,
+	categoria,
+	marca
+},
+.
+.
+.
+.
+.
+.
+]
+```
+* Para obtener un producto, GET `API/productos/:id`:
+Regresa:
+```
+{
+	_id,
+	nombre,
+	stock,
+	precio,
+	descripcion,
+	imagen,
+	categoria,
+	marca
+}
+```
+* Para editar un producto, PUT `API/productos/actualizar`:
+Ingreso
+```
+{
+	_id,
+	nombre,
+	stock,
+	precio,
+	descripcion,
+	imagen,
+	categoria,
+	marca
+}
+```
+Regresa:
+```
+{
+	mensaje: "Exito al actualizar el producto"
+}
+```
+* Para eliminar un producto, DELETE `API/productos/:id`:
+Regresa:
+```
+{
+	mensaje: "Exito al eliminar el producto
+}
+```

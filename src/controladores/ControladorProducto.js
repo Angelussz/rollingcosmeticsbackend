@@ -67,6 +67,14 @@ class ControladorProducto{
             throw error;
         }
     }
+
+    async BorrarProducto(id){
+        try {
+            await ModeloProducto.findByIdAndDelete(id);
+        } catch (error) {
+            throw error;
+        }
+    }
 }
 
 module.exports = ControladorProducto;
