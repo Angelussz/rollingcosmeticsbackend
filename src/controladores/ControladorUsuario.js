@@ -102,6 +102,20 @@ class ControladorUsuario {
       throw error;
     }
   }
+  async ActualizarNombreApellidoUsuario(usuario,id){
+    // AQUI TENDRIAMOS QUE APLICAR LAS MISMAS VALIDACIONES QUE EN EL CREATE
+    if (!validadores.ValidarEmail(usuario.email)) {
+      throw new Error("Formato Email Invalido");
+    }
+    if (!validadores.ValidarClave(usuario.clave))
+      throw new Error("Formato de clave Incorrecto");
+    
+    await ModeloUsuario.findByIdAndUpdate(id,{
+      nombre: usuario.nombre,
+      apellido: usuario.apellido,
+      // email:usuario.email
+    })
+  }
 }
 
 module.exports = ControladorUsuario;
