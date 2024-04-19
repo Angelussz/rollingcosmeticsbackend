@@ -50,6 +50,23 @@ class ControladorProducto{
             throw error;
         }
     }
+
+    async ObtenerPorId(id){
+        try {
+            const producto = await ModeloProducto.findById(id);
+            return producto;
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    async ActualizarProducto(producto){
+        try {
+            await ModeloProducto.findByIdAndUpdate(producto._id, producto);
+        } catch (error) {
+            throw error;
+        }
+    }
 }
 
 module.exports = ControladorProducto;
