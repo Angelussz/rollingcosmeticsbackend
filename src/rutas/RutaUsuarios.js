@@ -72,5 +72,19 @@ const RutaUsuarios = (base, app) => {
       }
     }
   );
+  app.put(`${base}/update`, Auth.esAutorizado, async (req, res) => {
+    try {
+      const usuario = req.body;
+      const {_id:id} = req.usuario; 
+      
+      await controlador.ActualizarNombreApellidoUsuario(usuario,id);
+      return res.status(200).json({ message: "Edicion del usuario con exito" });
+    } catch (error) {
+      console.log(`Error al actualizar un usuario --> `, error);
+      return res.status(500).json({
+        message: "Ocurrio un error al intentar actualizar el usuario",
+      });
+    }
+  });
 };
 module.exports = RutaUsuarios;

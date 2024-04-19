@@ -1,3 +1,19 @@
+const regexEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+const regexPassword = /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/
+
+function ValidarEmail(evalEmail){
+    return regexEmail.test(evalEmail)
+}
+
+function ValidarClave(evalClave){
+    return regexPassword.test(evalClave)
+}
+
+module.exports = {
+    ValidarEmail,
+    ValidarClave
+}
+
 function validarNombre(nombre){
     if(nombre.length>=4 && nombre.length<=10){
         return true
@@ -54,4 +70,4 @@ function validarMarca(marca){
     }
 }
 
-module.exports = {validarNombre, validarStock, validarPrecio, validarDescripcion, validarImagen, validarCategoria, validarMarca}
+module.exports = {validarNombre, validarStock, validarPrecio, validarDescripcion, validarImagen, validarCategoria, validarMarca,ValidarClave,ValidarEmail}
