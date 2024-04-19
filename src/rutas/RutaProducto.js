@@ -26,6 +26,28 @@ const RutaProducto = (base, app)=>{
             return res.status(500).json({message:"Ocurrio un error al intentar obtener los productos"});
         }
     });
+
+    app.get(`${base}/:id`, async(req, res)=>{
+        try {
+            const {id} = req.params;
+            const respuesta = await controlador.ObtenerPorId(id);
+            return res.status(200).json(respuesta);
+        } catch (error) {
+            console.error(`Error al obtener el producto con id: ${id} -->`, error);
+            return res.status(500).json({message:"Ocurrio un error al intentar obtener el producto"});
+        }
+    });
+
+    app.put(`${base}/actualizar`, Auth.esAutorizado, Auth.esAdmin, async(req, res)=>{
+        try {
+            const producto = req.body;
+            await controlador.ActualizarProducto(producto);
+            return res.status(200).json({message:"Exito"});
+        } catch (error) {
+            console.error("Error al actualizar un producto --> ", error);
+            return res.status(500).json({massage:"Ocurrio un error al intentar actualizar el producto"});
+        }
+    })
 }
 
 module.exports = RutaProducto;
