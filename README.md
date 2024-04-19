@@ -113,3 +113,18 @@ Regresa:
 	mensaje: "Exito al eliminar usuario"
 }
 ```
+* Para actulizar un usuario, DELETE `API/usuarios/update/`, solo actuliza el nombre y/o apellido, aun se esta viendo como se puede actualizar correo y clave de forma segura, tambien se necesita header de autorización con token:
+Ingreso
+```
+{
+	nombre,
+	apellido,
+	clave,
+}
+```
+Regresa:
+```
+{
+	mensaje: "Exito al eliminar usuario"
+}
+```
