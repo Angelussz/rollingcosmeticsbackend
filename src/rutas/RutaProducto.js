@@ -42,10 +42,21 @@ const RutaProducto = (base, app)=>{
         try {
             const producto = req.body;
             await controlador.ActualizarProducto(producto);
-            return res.status(200).json({message:"Exito"});
+            return res.status(200).json({message:"Exito al actualizar el producto"});
         } catch (error) {
             console.error("Error al actualizar un producto --> ", error);
             return res.status(500).json({massage:"Ocurrio un error al intentar actualizar el producto"});
+        }
+    })
+
+    app.delete(`${base}/:id`, Auth.esAutorizado, Auth.esAdmin, async(req, res)=>{
+        try {
+            const {id}=req.params;
+            await controlador.BorrarProducto(id);
+            return res.status(200).json({message:"Exito al eliminar el producto"});
+        } catch (error) {
+            console.error("Error al eliminar un producto --> ", error);
+            return res.status(500).json({message:"Ocurrio un error al intentar eliminar el producto"});
         }
     })
 }
