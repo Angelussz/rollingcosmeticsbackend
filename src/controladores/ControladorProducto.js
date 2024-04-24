@@ -34,7 +34,7 @@ class ControladorProducto{
             };
 
             if(busqueda !== undefined){
-                consulta[nombre]={$regex: busqueda, $options:"i"};
+                consulta["nombre"]={$regex: busqueda, $options:"i"};
             }
 
             /*if(filtro === undefined){
@@ -44,8 +44,9 @@ class ControladorProducto{
                     categoria: filtro
                 });
             }*/
-            respuestaFinal = await ModeloProducto.find(consulta);
-            return productos;
+
+            // return respuestaFinal;
+            return respuestaFinal = await ModeloProducto.find(consulta);
         } catch (error) {
             throw error;
         }
