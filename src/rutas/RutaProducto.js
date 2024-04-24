@@ -17,10 +17,10 @@ const RutaProducto = (base, app)=>{
 
     app.get(`${base}/`, async(req, res)=>{
         try {
-            const {filtro} = req.query;
-            console.log("Valor de la query filtro: ", filtro);
-            const respuesta = await controlador.ObtenerProductos(filtro);
-            return res.status(200).json(respuesta);
+            const {filtro, busqueda,limite} = req.query;
+            console.log("Valor de la query filtro", filtro);
+            const response = await controlador.ObtenerProductos(filtro, busqueda,limite);
+            return res.status(200).json(response);
         } catch (error) {
             console.error("Error al obtener todos los productos --> ", error);
             return res.status(500).json({message:"Ocurrio un error al intentar obtener los productos"});

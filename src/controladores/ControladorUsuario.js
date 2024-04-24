@@ -1,6 +1,6 @@
 const ModeloUsuario = require("../modelos/ModeloUsuario");
 const bcrypt = require("bcrypt");
-const validadores = require("../utilidades/Validadores");
+const validadores = require("../utilidades/validadores");
 const jwt = require("jsonwebtoken");
 class ControladorUsuario {
   async CrearNuevoAdmin(nombre, apellido, email, clave) {
