@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const validadores = require("../utilidades/validadores");
 const jwt = require("jsonwebtoken");
 class ControladorUsuario {
-  async CrearNuevoAdmin(nombre, apellido, email, clave) {
+  async CrearNuevoUsuario(nombre, apellido, email, clave, rol = "Usuario") {
     try {
       if (!validadores.ValidarEmail(email)) {
         throw new Error("Formato Email Invalido");
@@ -17,7 +17,7 @@ class ControladorUsuario {
         apellido,
         email,
         clave: hash,
-        rol: "Admin",
+        rol,
       });
       const guardarUsuario = await nuevoUsuario.save();
       return guardarUsuario;

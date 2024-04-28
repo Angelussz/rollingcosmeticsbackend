@@ -2,22 +2,23 @@ const ControladorUsuario = require("../controladores/ControladorUsuario");
 const Auth = require("../utilidades/AuthMiddlewares");
 const RutaUsuarios = (base, app) => {
   const controlador = new ControladorUsuario();
-  app.post(`${base}/crear-admin`, async (req, res, next) => {
+  app.post(`${base}/crear-admin`,Auth.esAutorizado,Auth.esAdmin,async (req, res, next) => {
     try {
       const { nombre, email, clave, apellido } = req.body;
-      const resp = await controlador.CrearNuevoAdmin(
+      const resp = await controlador.CrearNuevoUsuario(
         nombre,
         apellido,
         email,
-        clave
+        clave,
+        "Admin"
       );
       return res.status(201).json(resp);
     } catch (error) {
-      console.error("Error al crear un nuevo usuario -->", error);
+      console.error("Error al crear un nuevo administrador -->", error);
       // next(error);
       return res
         .status(500)
-        .json({ mensaje: "Ocurrio un error al intentar crear usuario" });
+        .json({ mensaje: "Ocurrio un error al intentar crear administrador" });
     }
   });
   app.post(`${base}/login`, async (req, res, next) => {
@@ -84,6 +85,25 @@ const RutaUsuarios = (base, app) => {
       return res.status(500).json({
         message: "Ocurrio un error al intentar actualizar el usuario",
       });
+    }
+  });
+  app.post(`${base}/`,async (req, res) => {
+    try {
+      const { nombre, email, clave, apellido } = req.body;
+      const resp = await controlador.CrearNuevoUsuario(
+        nombre,
+        apellido,
+        email,
+        clave,
+        "Usuario"
+      );
+      return res.status(201).json({mensaje:"Se creo nuevo usuario correctamente"});
+    } catch (error) {
+      console.error("Error al crear un nuevo usuario -->", error);
+      // next(error);
+      return res
+        .status(500)
+        .json({ mensaje: "Ocurrio un error al intentar crear usuario" });
     }
   });
 };
