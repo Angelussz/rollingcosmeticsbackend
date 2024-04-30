@@ -5,8 +5,8 @@ const EsquemaProducto = new Schema({
     nombre:{
         type:String,
         required:[true, "El nombre es requerido"],
-        minLength:4,
-        maxLength:10,
+        minLength:2,
+        maxLength:30,
         unique:true
     },
     stock:{
@@ -20,13 +20,13 @@ const EsquemaProducto = new Schema({
     descripcion:{
         type:String,
         required:[true, "La descripcion es requerida"],
-        minLength:4,
-        maxLength:200
+        minLength:3,
+        maxLength:100
     },
     imagen:{
         type:String,
         minLength:10,
-        maxLength:20,
+        maxLength:400,
         required:[true, "La imagen es requerida"]
     },
     categoria:{
@@ -40,10 +40,6 @@ const EsquemaProducto = new Schema({
         minLength:4,
         maxLength:20,
         required:[true, "La marca es requerida"]
-    },
-    fecha:{
-        type: Date,
-        required:[true, "La fecha es requerida"]
     }
 })
 
