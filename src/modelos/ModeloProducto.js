@@ -26,7 +26,7 @@ const EsquemaProducto = new Schema({
     imagen:{
         type:String,
         minLength:10,
-        maxLength:20,
+        maxLength:150,
         required:[true, "La imagen es requerida"]
     },
     categoria:{
@@ -40,10 +40,6 @@ const EsquemaProducto = new Schema({
         minLength:4,
         maxLength:20,
         required:[true, "La marca es requerida"]
-    },
-    fecha:{
-        type: Date,
-        required:[true, "La fecha es requerida"]
     }
 })
 

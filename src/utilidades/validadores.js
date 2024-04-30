@@ -9,13 +9,13 @@ function ValidarClave(evalClave){
     return regexPassword.test(evalClave)
 }
 
-module.exports = {
+/*module.exports = {
     ValidarEmail,
     ValidarClave
-}
+}*/
 
 function validarNombre(nombre){
-    if(nombre.length>=4 && nombre.length<=10){
+    if(nombre.length>=2 && nombre.length<=30){
         return true
     } else{
         return false
@@ -39,7 +39,7 @@ function validarPrecio(precio){
 }
 
 function validarDescripcion(descripcion){
-    if(descripcion.length>=4 && descripcion.length<=200){
+    if(descripcion.length>=3 && descripcion.length<=100){
         return true
     } else{
         return false
@@ -47,7 +47,7 @@ function validarDescripcion(descripcion){
 }
 
 function validarImagen(imagen){
-    if(imagen.length>=10 && imagen.length<=20){
+    if(imagen.length>=10 && imagen.length<=400){
         return true
     } else{
         return false
@@ -63,7 +63,7 @@ function validarCategoria(categoria){
 }
 
 function validarMarca(marca){
-    if(marca.length>=4 && marca.length<=20){
+    if(marca.length>=2 && marca.length<=30){
         return true
     } else{
         return false
@@ -71,7 +71,8 @@ function validarMarca(marca){
 }
 
 function validarFecha(fecha){
-    return fecha instanceof Date && !isNaN(fecha);
+    //return fecha instanceof Date && !isNaN(fecha);
+    return true;
 }
 
 module.exports = {validarNombre, validarStock, validarPrecio, validarDescripcion, validarImagen, validarCategoria, validarMarca,ValidarClave,ValidarEmail, validarFecha}
