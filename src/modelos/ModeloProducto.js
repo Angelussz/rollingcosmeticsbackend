@@ -14,7 +14,7 @@ const EsquemaProducto = new Schema({
         required:[true, "El stock es requerido"]
     },
     precio:{
-        type:Number,
+        type:String,
         required:[true, "El precio es requerido"]
     },
     descripcion:{
