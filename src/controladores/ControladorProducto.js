@@ -2,9 +2,9 @@ const ModeloProducto = require('../modelos/ModeloProducto');
 const validador = require('../utilidades/validadores');
 
 class ControladorProducto{
-    async Crear(nombre, stock, precio, descripcion, imagen, categoria, marca){
+    async Crear(nombre, stock, precio, descripcion, imagen, categoria, marca, fecha){
         try {
-            if(!validador.validarNombre(nombre) || !validador.validarStock(stock) || !validador.validarPrecio(precio) || !validador.validarDescripcion(descripcion) || !validador.validarImagen(imagen) || !validador.validarCategoria(categoria) || !validador.validarMarca(marca)){
+            if(!validador.validarNombre(nombre) || !validador.validarStock(stock) || !validador.validarPrecio(precio) || !validador.validarDescripcion(descripcion) || !validador.validarImagen(imagen) || !validador.validarCategoria(categoria) || !validador.validarMarca(marca) || !validador.validarFecha(fecha)){
                 throw new Error("Error en alguno de los campos");
             }
 
@@ -15,7 +15,8 @@ class ControladorProducto{
                 descripcion: descripcion,
                 imagen: imagen,
                 categoria: categoria,
-                marca: marca
+                marca: marca,
+                fecha: fecha
             });
 
             await producto.save();

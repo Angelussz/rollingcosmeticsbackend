@@ -70,4 +70,8 @@ function validarMarca(marca){
     }
 }
 
-module.exports = {validarNombre, validarStock, validarPrecio, validarDescripcion, validarImagen, validarCategoria, validarMarca,ValidarClave,ValidarEmail}
+function validarFecha(fecha){
+    return fecha instanceof Date && !isNaN(fecha);
+}
+
+module.exports = {validarNombre, validarStock, validarPrecio, validarDescripcion, validarImagen, validarCategoria, validarMarca,ValidarClave,ValidarEmail, validarFecha}
