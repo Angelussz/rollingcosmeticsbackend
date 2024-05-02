@@ -40,6 +40,10 @@ const EsquemaProducto = new Schema({
         minLength:4,
         maxLength:20,
         required:[true, "La marca es requerida"]
+    },
+    fecha:{
+        type:Date,
+        required:[true, "La marca es requerida"]
     }
 })
 
