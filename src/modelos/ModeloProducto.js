@@ -10,7 +10,7 @@ const EsquemaProducto = new Schema({
         unique:true
     },
     stock:{
-        type:Number,
+        type:Number,    
         required:[true, "El stock es requerido"]
     },
     precio:{
@@ -43,7 +43,7 @@ const EsquemaProducto = new Schema({
     },
     fecha:{
         type:Date,
-        required:[true, "La marca es requerida"]
+        required:[true, "La fecha es requerida"]
     }
 })
 
