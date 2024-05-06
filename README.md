@@ -1,46 +1,18 @@
 # Rolling Cosmetics
-* Se trabajara en español
-* No tocar la rama prinicpal (main) todos se debe trabajar en ramas separadas y mergear en la rama develop
-## Producto
-- id
-- nombre
-- stock
-- precio
-- descripción
-- imagen
-- categoría
-- marca
-## Usuarios
-- id
-- Nombre
-- Apellidos
-- email
-- contraseña
-# Estructura de carpetas
-	rollingcosmeticsbackend/
-	├── src
-	│   ├── controladores
-	│   │   ├── ControladorProduto.js
-	│   │   └── ControladorUsuario.js
-    │	│   ├── modelos
-    │	│   │   ├── ModeloProducto.js
-	│   │   └── ModeloUsuario.js
-	│   ├── rutas
-    │   │   ├── RutaProducto.js
-	│   │   └── RutaUusuario.js
-    │   ├── utilidades
-    │   │   ├── AuthMiddlewares.js
-    │   │   ├── FuncionesAuxiliares.js
-	│   │   └── FuncionesAuxiliares.js
-    │   ├── ConexionBaseDatos.js
-	│   ├── index.js
-    ├── .env
-    ├── .envexamples
-    ├── .gitignore
-	├── .gitignore
-	└── README.md
-# EndPoints
-## Usuario
+Backend tienda E-commerce de venta de cosmeticos  realizada por los estudiantes de la comisión 80i - Tutores: Alan Chibilisco y Valentin Quiroga, integrantes:
+* Angelo Perez
+* Facundo Palacios
+* Juan Illa
+El proyectos se trabajo en español y la rama develop se uso como rama de pruebas y la rama main como rama principal a producción
+## Tecnologias usadas
+![Static Badge](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
+![Static Badge](https://img.shields.io/badge/CSS-563d7c?&style=flat&logo=css3&logoColor=white)
+![Static Badge](https://img.shields.io/badge/JavaScript-323330?style=flat&logo=javascript&logoColor=F7DF1E)
+![Static Badge](https://img.shields.io/badge/Bootstrap-7952B3?style=flat&logo=bootstrap&logoColor=white)
+![Static Badge](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)
+![Static Badge](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)
+## EndPoints
+### Usuario
 * Para loguearse, POST `API/usuarios/login`: 
 Regresa:
 ```
@@ -51,7 +23,7 @@ Regresa:
 	token
 }
 ```
-* Para crear un admin, POST `API/usuarios/crear-admin`: <span style="color:red">se debe autenticar como administrador</span>
+* Para crear un admin, POST `API/usuarios/crear-admin`: ***se debe autenticar como administrador***
 Regresa:
 ```
 {
