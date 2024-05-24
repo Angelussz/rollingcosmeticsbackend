@@ -35,12 +35,6 @@ const RutaUsuarios = (base, app) => {
     Auth.esAdmin,
     async (req, res, next) => {
       try {
-        // const resp = await controlador.Login(req,res)
-        // return resp
-
-        // console.log(req.query);
-        // console.log(req.usuario);
-
         const { rol, busqueda } = req.query;
         const usuarios = await controlador.TraerTodosUsuarios(rol, busqueda);
         return res.status(200).json(usuarios);
@@ -66,7 +60,7 @@ const RutaUsuarios = (base, app) => {
           .status(200)
           .json({ nessage: "Exito al eliminar el usuario" });
       } catch (error) {
-        console.log("Erro al eliminar el producto -->", error);
+        console.log("Error al eliminar el producto -->", error);
         return res.status(500).json({
           message: "Ocurrio un error al intentar eliminar el usuario",
         });

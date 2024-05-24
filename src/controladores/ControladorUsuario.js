@@ -77,7 +77,6 @@ class ControladorUsuario {
       let query = {
 
       }
-      console.log({rol,busqueda})
       if(rol !== undefined){
         query["rol"] = rol;
       };
@@ -86,7 +85,6 @@ class ControladorUsuario {
         const apellido = {apellido: {$regex:busqueda,$options:"i"}}
         query ["$or"] = [nombre,apellido]
       }
-      console.log("###QUERY-->",JSON.stringify(query))
       finalResponse = await ModeloUsuario.find(query)
       
       return finalResponse
