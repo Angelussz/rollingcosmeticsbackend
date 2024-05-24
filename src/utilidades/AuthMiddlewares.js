@@ -11,7 +11,6 @@ function esAutorizado(req, res, next) {
     req.usuario = decodeToken;
     next();
   } catch (error) {
-    // next(new Error("Token vencido"))
     return res.status(401).json({ mensaje: "Token invalido y/o vencido" });
   }
 }

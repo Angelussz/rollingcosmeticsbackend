@@ -6,8 +6,8 @@ const RutaProducto = (base, app)=>{
 
     app.post(`${base}/`, Auth.esAutorizado, Auth.esAdmin, async(req, res, next)=>{
         try {
-            const {nombre, stock, precio, descripcion, imagen, categoria, marca}=req.body;
-            await controlador.Crear(nombre, stock, precio, descripcion, imagen, categoria, marca);
+            const {nombre, stock, precio, descripcion, imagen, categoria, marca,fecha}=req.body;
+            await controlador.Crear(nombre, stock, precio, descripcion, imagen, categoria, marca,fecha);
             return res.status(201).json({message:"Exito al crear el producto"})
         } catch (error) {
             console.error("Error al crear un producto --> ", error);
@@ -18,7 +18,6 @@ const RutaProducto = (base, app)=>{
     app.get(`${base}/`, async(req, res)=>{
         try {
             const {filtro, busqueda,limite} = req.query;
-            console.log("Valor de la query filtro", filtro);
             const response = await controlador.ObtenerProductos(filtro, busqueda,limite);
             return res.status(200).json(response);
         } catch (error) {

@@ -11,7 +11,6 @@ conexion()
 const app = express();
 
 app.set("port", process.env.PORT ||9001);
-console.log("first")
 app.listen(app.get("port"),()=>{
     console.log(`BACKEND PRODUCTOS LISTENING IMPORT IN PORT ${app.get('port')}`)
 })
