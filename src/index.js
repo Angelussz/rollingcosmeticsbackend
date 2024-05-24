@@ -2,7 +2,7 @@ const express  = require("express")
 const cors = require("cors")
 const morgan = require("morgan")
 const path = require("path")
-const conexion = require('./ConexionBDMongo.js')
+const conexion = require('./conexionBDMongo.js')
 const RutaProducto = require("./rutas/RutaProducto.js")
 const RutaUsuarios = require("./rutas/RutaUsuarios.js")
 
