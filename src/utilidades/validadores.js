@@ -9,11 +9,6 @@ function ValidarClave(evalClave){
     return regexPassword.test(evalClave)
 }
 
-/*module.exports = {
-    ValidarEmail,
-    ValidarClave
-}*/
-
 function validarNombre(nombre){
     if(nombre.length>=2 && nombre.length<=30){
         return true
