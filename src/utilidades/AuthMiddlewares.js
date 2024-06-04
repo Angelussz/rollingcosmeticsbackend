@@ -26,7 +26,6 @@ function esAdmin(req, res, next) {
   }
 }
 
-//Funcion Eliminar un usuario pero no eliminarse a si mismo
 function esElMismo(req, res, next) {
   try {
     const idEnviado = req.params.id;

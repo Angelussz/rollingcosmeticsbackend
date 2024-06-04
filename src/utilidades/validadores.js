@@ -66,7 +66,6 @@ function validarMarca(marca){
 }
 
 function validarFecha(fecha){
-    //return fecha instanceof Date && !isNaN(fecha);
     return true;
 }
 
