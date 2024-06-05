@@ -94,7 +94,6 @@ const RutaUsuarios = (base, app) => {
       return res.status(201).json({mensaje:"Se creo nuevo usuario correctamente"});
     } catch (error) {
       console.error("Error al crear un nuevo usuario -->", error);
-      // next(error);
       return res
         .status(500)
         .json({ mensaje: "Ocurrio un error al intentar crear usuario" });

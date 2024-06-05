@@ -6,13 +6,11 @@ const EsquemaUsuario = new Schema({
     type: String,
     required: true,
     lowercase: true
-    // minLength:[1,"El tamaño del nombre es muy pequeño"]
   },
   apellido:{
     type: String,
     required: true,
-    lowercase: true
-    // minLength:[3,"El tamaño del nombre es muy pequeño"] 
+    lowercase: true 
   },
   email: {
     type: String,

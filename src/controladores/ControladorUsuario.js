@@ -71,12 +71,9 @@ class ControladorUsuario {
   async TraerTodosUsuarios(rol,busqueda) {
     try {
       let finalResponse = [];
-      // let query = {
-      //   $or:[{nombre: {$regex:busqueda,$options:"i"}},{apellido:{$regex:busqueda,$options:"i"}}]
-      // }
-      let query = {
 
-      }
+      let query = {}
+      
       if(rol !== undefined){
         query["rol"] = rol;
       };
@@ -101,7 +98,7 @@ class ControladorUsuario {
     }
   }
   async ActualizarNombreApellidoUsuario(usuario,id){
-    // AQUI TENDRIAMOS QUE APLICAR LAS MISMAS VALIDACIONES QUE EN EL CREATE
+    
     if (!validadores.ValidarEmail(usuario.email)) {
       throw new Error("Formato Email Invalido");
     }
@@ -111,7 +108,6 @@ class ControladorUsuario {
     await ModeloUsuario.findByIdAndUpdate(id,{
       nombre: usuario.nombre,
       apellido: usuario.apellido,
-      // email:usuario.email
     })
   }
 }
